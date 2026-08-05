@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-offwhite text-charcoal-800 antialiased;
+  }
+}
+
+@layer components {
+  .container-architect {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-28;
+  }
+
+  .eyebrow {
+    @apply inline-block text-xs font-semibold uppercase tracking-[0.25em] text-deepgreen-700;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-deepgreen-700 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-offwhite transition-all duration-300 ease-architect hover:bg-deepgreen-800;
+  }
+
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-offwhite/40 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-offwhite transition-all duration-300 ease-architect hover:bg-offwhite hover:text-charcoal-900;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-deepgreen-700 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-deepgreen-700 transition-all duration-300 ease-architect hover:bg-deepgreen-700 hover:text-offwhite;
+  }
+
+  .link-underline {
+    @apply inline-flex items-center gap-1.5 font-medium text-deepgreen-700 transition-colors duration-300 hover:text-gold-600;
+  }
+}
