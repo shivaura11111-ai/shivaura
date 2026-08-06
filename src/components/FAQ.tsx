@@ -21,33 +21,54 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="section-padding bg-beige/40">
+    <section
+      id="faq"
+      aria-labelledby="faq-heading"
+      className="section-padding bg-beige/40"
+    >
+      {/* FAQ Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd),
+        }}
       />
+
       <div className="container-architect max-w-3xl">
-        <div className="mb-12">
+        <header className="mb-12">
           <span className="eyebrow">Frequently Asked Questions</span>
-          <h2 className="text-3xl font-semibold leading-tight text-charcoal-900 sm:text-4xl">
+
+          <h2
+            id="faq-heading"
+            className="text-3xl font-semibold leading-tight text-charcoal-900 sm:text-4xl"
+          >
             Common Questions, Answered
           </h2>
-        </div>
+        </header>
 
-        <div className="divide-y divide-charcoal-900/10 border-b border-t border-charcoal-900/10">
+        <div
+          className="divide-y divide-charcoal-900/10 border-b border-t border-charcoal-900/10"
+          role="list"
+        >
           {faqs.map((item, index) => {
             const isOpen = index === openIndex;
+            const buttonId = `faq-question-${index}`;
+            const panelId = `faq-answer-${index}`;
+
             return (
-              <div key={item.question}>
+              <article key={item.question} role="listitem">
                 <button
+                  id={buttonId}
                   type="button"
                   aria-expanded={isOpen}
+                  aria-controls={panelId}
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
                   className="flex min-h-[44px] w-full items-center justify-between gap-4 py-5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold-500"
                 >
                   <span className="font-medium text-charcoal-900">
                     {item.question}
                   </span>
+
                   <Plus
                     size={20}
                     aria-hidden="true"
@@ -56,7 +77,11 @@ export default function FAQ() {
                     }`}
                   />
                 </button>
+
                 <div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
                   className="grid overflow-hidden transition-all duration-300 ease-architect"
                   style={{
                     gridTemplateRows: isOpen ? "1fr" : "0fr",
@@ -69,7 +94,7 @@ export default function FAQ() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </article>
             );
           })}
         </div>
