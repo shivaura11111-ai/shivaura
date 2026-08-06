@@ -72,7 +72,7 @@ export const whyUs = [
 
 export const faqs = [
   {
-    question: "What services does GreennBugg House Deziign provide?",
+    question: "What services does shivaura provide?",
     answer:
       "We provide 2D floor plan design, 3D front elevation, residential and commercial architecture, interior design, villa design, construction consultancy, 3D visualisation, structural planning, and renovation and remodeling services.",
   },

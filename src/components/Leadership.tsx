@@ -20,7 +20,7 @@ export default function Leadership() {
           </h2>
 
           <p className="mx-auto mt-4 max-w-3xl text-charcoal-700">
-            Meet the visionary leaders behind Greenn Bugg House Deziign who
+            Meet the visionary leaders behind Shivaura who
             combine creativity, innovation, strategic thinking, operational
             excellence and people leadership to build inspiring architectural
             projects.

@@ -38,7 +38,7 @@ export default function About() {
         <div className="relative mx-auto aspect-[4/5] w-full max-w-md lg:mx-0">
           <Image
             src="/images/interior.webp"
-            alt="GreennBugg House Deziign"
+            alt="Shivaura"
             fill
             sizes="(max-width: 1024px) 90vw, 40vw"
             className="rounded-xl object-cover shadow-2xl"
@@ -61,7 +61,7 @@ export default function About() {
           </h2>
 
           <p className="mb-6 leading-8 text-charcoal-700">
-            <strong>GreennBugg House Deziign</strong> creates modern,
+            <strong>Shivaura</strong> creates modern,
             functional, and inspiring interiors that perfectly blend beauty,
             comfort, and practicality. Every project is thoughtfully designed
             to reflect your personality while delivering exceptional quality.

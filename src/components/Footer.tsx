@@ -42,10 +42,10 @@ export default function Footer() {
       <div className="container-architect grid grid-cols-1 gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <span className="font-display block text-2xl font-semibold text-offwhite">
-            GreennBugg
+            Shiv
           </span>
           <span className="mb-4 mt-1 block text-xs uppercase tracking-[0.3em] text-gold-500">
-            House Deziign
+            aura
           </span>
           <p className="max-w-xs text-sm leading-relaxed text-offwhite/60">
             A premium architecture and interior design studio crafting
@@ -141,10 +141,10 @@ export default function Footer() {
             <li className="flex items-center gap-3">
               <Mail size={18} className="shrink-0 text-gold-500" />
               <a
-                href="mailto:hello@greennbugg.example"
+                href="mailto:shivaura11111@gmail.com"
                 className="transition-colors hover:text-gold-500"
               >
-                rohitprakash7061@gmail.com
+                shivaura11111@gmail.com
               </a>
             </li>
             <li className="flex items-start gap-3">
@@ -161,7 +161,7 @@ export default function Footer() {
       <div className="border-t border-offwhite/10">
         <div className="container-architect flex flex-col items-center justify-between gap-4 py-6 text-xs text-offwhite/50 sm:flex-row">
           <p>
-            © {year} GreennBugg House Deziign. All Rights Reserved.
+            © {year} Shivaura House Deziign. All Rights Reserved.
           </p>
           <div className="flex items-center gap-5">
             <Link href="/privacy-policy" className="hover:text-gold-500">

@@ -25,7 +25,7 @@ export default function WhyUs() {
         <div className="mb-12 max-w-2xl">
           <span className="eyebrow">Our Advantage</span>
           <h2 className="text-3xl font-semibold leading-tight text-charcoal-900 sm:text-4xl">
-            Why Choose GreennBugg House Deziign?
+            Why Choose Shivaura?
           </h2>
         </div>
 
