@@ -15,25 +15,24 @@ export default function ConsultationForm() {
 
     const form = e.currentTarget;
 
-    // EmailJS values come from environment variables
+    // Get EmailJS settings from Vercel environment variables
     const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
     const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-    // Check if environment variables are available
+    // Make sure environment variables exist
     if (!serviceId || !templateId || !publicKey) {
       console.error("EmailJS environment variables are missing.");
 
-      alert(
-        "Email service is not configured. Please try again later."
-      );
+      alert("Email service is not configured. Please try again later.");
 
       setSubmitting(false);
       return;
     }
 
-    const fullName = (
-      form.elements.namedItem("fullName") as HTMLInputElement
+    // Get form values
+    const name = (
+      form.elements.namedItem("name") as HTMLInputElement
     ).value;
 
     const phone = (
@@ -45,19 +44,23 @@ export default function ConsultationForm() {
     ).value;
 
     try {
-      await emailjs.send(
+      // Send email through EmailJS
+      const response = await emailjs.send(
         serviceId,
         templateId,
         {
-          fullName,
-          phone,
-          city,
+          name: name,
+          phone: phone,
+          city: city,
         },
         publicKey
       );
 
+      console.log("EmailJS success:", response);
+
       alert("Form submitted successfully!");
 
+      // Clear form
       form.reset();
     } catch (error) {
       console.error("EmailJS Error:", error);
@@ -87,9 +90,9 @@ export default function ConsultationForm() {
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Full Name */}
+          {/* Name */}
           <div className="relative">
-            <label htmlFor="fullName" className="sr-only">
+            <label htmlFor="name" className="sr-only">
               Full Name
             </label>
 
@@ -100,9 +103,9 @@ export default function ConsultationForm() {
             />
 
             <input
-              id="fullName"
+              id="name"
               type="text"
-              name="fullName"
+              name="name"
               required
               aria-required="true"
               autoComplete="name"
