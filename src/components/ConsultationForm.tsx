@@ -15,45 +15,73 @@ export default function ConsultationForm() {
 
     const form = e.currentTarget;
 
+    // EmailJS values come from environment variables
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    // Check if environment variables are available
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("EmailJS environment variables are missing.");
+
+      alert(
+        "Email service is not configured. Please try again later."
+      );
+
+      setSubmitting(false);
+      return;
+    }
+
+    const fullName = (
+      form.elements.namedItem("fullName") as HTMLInputElement
+    ).value;
+
+    const phone = (
+      form.elements.namedItem("phone") as HTMLInputElement
+    ).value;
+
+    const city = (
+      form.elements.namedItem("city") as HTMLSelectElement
+    ).value;
+
     try {
       await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        serviceId,
+        templateId,
         {
-          fullName: (form.fullName as HTMLInputElement).value,
-          phone: (form.phone as HTMLInputElement).value,
-          city: (form.city as HTMLSelectElement).value,
+          fullName,
+          phone,
+          city,
         },
-        "YOUR_PUBLIC_KEY"
+        publicKey
       );
 
       alert("Form submitted successfully!");
+
       form.reset();
     } catch (error) {
-      console.error(error);
-      alert("Failed to send. Please try again.");
-    }
+      console.error("EmailJS Error:", error);
 
-    setSubmitting(false);
+      alert("Failed to send. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
-    <section
-      aria-labelledby="consultation-heading"
-      className="relative overflow-hidden rounded-[18px] bg-white shadow-[0_12px_35px_rgba(0,0,0,0.18)]"
-    >
-      <div className="absolute -top-3 right-4">
-        <div className="rounded-bl-xl rounded-tr-xl rounded-tl-xl bg-gold-500 px-4 py-1.5">
-          <span className="text-xs font-semibold text-white">
-            Free Consultation
-          </span>
+    <section className="overflow-hidden rounded-3xl bg-[#111111]">
+      {/* Header */}
+      <div className="flex justify-end">
+        <div className="rounded-bl-2xl bg-gold-500 px-6 py-2 text-sm font-semibold text-white">
+          Free Consultation
         </div>
       </div>
 
-      <div className="px-5 pb-6 pt-8">
+      {/* Form Content */}
+      <div className="px-5 pb-6 pt-5">
         <h2
           id="consultation-heading"
-          className="mb-6 text-base font-bold text-[#14274E]"
+          className="mb-6 text-xl font-bold text-white"
         >
           Get a Free Consultation
         </h2>
@@ -66,9 +94,9 @@ export default function ConsultationForm() {
             </label>
 
             <User
-              size={14}
+              size={18}
               aria-hidden="true"
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
             />
 
             <input
@@ -79,7 +107,7 @@ export default function ConsultationForm() {
               aria-required="true"
               autoComplete="name"
               placeholder="Full Name"
-              className="h-10 w-full rounded-lg border border-[#1F3B6D] px-10 text-xs outline-none focus:border-gold-500"
+              className="h-14 w-full rounded-xl border border-[#53647d] bg-[#3a3a3a] px-12 text-base text-white placeholder:text-gray-300 outline-none focus:border-[#d4a940]"
             />
           </div>
 
@@ -90,9 +118,9 @@ export default function ConsultationForm() {
             </label>
 
             <Phone
-              size={14}
+              size={18}
               aria-hidden="true"
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
             />
 
             <input
@@ -104,7 +132,7 @@ export default function ConsultationForm() {
               autoComplete="tel"
               inputMode="tel"
               placeholder="Phone Number"
-              className="h-10 w-full rounded-lg border border-[#1F3B6D] px-10 text-xs outline-none focus:border-gold-500"
+              className="h-14 w-full rounded-xl border border-[#53647d] bg-[#3a3a3a] px-12 text-base text-white placeholder:text-gray-300 outline-none focus:border-[#d4a940]"
             />
           </div>
 
@@ -115,9 +143,9 @@ export default function ConsultationForm() {
             </label>
 
             <Phone
-              size={14}
+              size={18}
               aria-hidden="true"
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
             />
 
             <select
@@ -127,7 +155,7 @@ export default function ConsultationForm() {
               aria-required="true"
               defaultValue=""
               autoComplete="address-level2"
-              className="h-10 w-full appearance-none rounded-lg border border-[#1F3B6D] bg-white px-10 text-xs outline-none focus:border-gold-500"
+              className="h-14 w-full appearance-none rounded-xl border border-[#53647d] bg-[#111111] px-12 pr-10 text-base text-white outline-none focus:border-[#d4a940]"
             >
               <option value="" disabled>
                 Select City
@@ -141,9 +169,9 @@ export default function ConsultationForm() {
             </select>
 
             <ChevronDown
-              size={14}
+              size={20}
               aria-hidden="true"
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
+              className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
             />
           </div>
 
@@ -152,13 +180,14 @@ export default function ConsultationForm() {
             type="submit"
             disabled={submitting}
             aria-busy={submitting}
-            className="h-10 w-full rounded-lg bg-gold-500 text-xs font-semibold uppercase tracking-wide text-white hover:bg-gold-600 disabled:cursor-not-allowed disabled:opacity-70"
+            className="h-14 w-full rounded-xl bg-gold-500 text-base font-semibold uppercase tracking-wide text-white transition hover:bg-gold-600 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {submitting ? "Sending..." : "LET'S BUILD YOUR DREAM"}
           </button>
         </form>
 
-        <p className="mt-4 text-center text-[10px] text-gray-500">
+        {/* Security Text */}
+        <p className="mt-5 text-center text-sm text-[#8fa3c2]">
           🔒 Your information is 100% secure.
         </p>
       </div>
