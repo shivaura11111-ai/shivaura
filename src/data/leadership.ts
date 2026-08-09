@@ -13,7 +13,7 @@ export const leadership: LeadershipMember[] = [
   {
     name: "Ar. Rohit Prakash",
     role: "CEO & Founder",
-    org: "shivaura",
+    org: "Shivaura Architect",
     image: "/images/ceo.webp",
     about:
       "Ar. Rohit Prakash is an architect and founder of Shivaura, dedicated to designing sustainable, functional, and timeless spaces that combine innovation with practical living.",
@@ -24,7 +24,7 @@ export const leadership: LeadershipMember[] = [
   {
     name: "Ravi Prakash",
     role: "Chief Operating Officer",
-    org: "shivaura",
+    org: "Shivaura Architect",
     image: "/images/coo.webp",
     about:
       "Ravi Prakash is the Chief Operating Officer (COO) at Shivaura, dedicated to ensuring efficient project execution, operational excellence, and consistent quality across every project.",
@@ -35,7 +35,7 @@ export const leadership: LeadershipMember[] = [
   {
     name: "Khushi Bhardwaj",
     role: "HR Manager",
-    org: "shivaura",
+    org: "Shivaura Architect",
     image: "/images/hr.webp",
     about:
       "Khushi Bhardwaj is the HR Manager at Shivaura, dedicated to building talented teams, fostering employee growth, and creating a positive workplace culture.",
@@ -46,7 +46,7 @@ export const leadership: LeadershipMember[] = [
   {
     name: "Ar. Nidhi Priya",
     role: "Architect",
-    org: "shivaura",
+    org: "Shivaura Architect",
     image: "/images/architect.webp",
     about:
       "Ar. Nidhi Priya is an architect at Shivaura, dedicated to designing functional, sustainable, and aesthetically balanced spaces that enhance everyday living.",

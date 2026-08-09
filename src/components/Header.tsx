@@ -66,7 +66,7 @@ export default function Header() {
 
             {/* Logo Text */}
             <div className={`flex flex-col leading-none ${bodoni.className}`}>
-                <span className="text-[34px] font-medium tracking-[0.06em] text-[#111111]">
+                <span className="text-[34px] font-medium uppercase tracking-[0.06em] text-[#111111]">
                   Shivaura
                 </span>
 

@@ -41,12 +41,14 @@ export default function Footer() {
     <footer className="bg-charcoal-950 text-offwhite/80">
       <div className="container-architect grid grid-cols-1 gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <span className="font-display block text-2xl font-semibold text-offwhite">
-            Shiv
-          </span>
-          <span className="mb-4 mt-1 block text-xs uppercase tracking-[0.3em] text-gold-500">
-            aura
-          </span>
+          <div className="mb-4 flex items-baseline whitespace-nowrap">
+            <span className="font-display text-2xl font-semibold text-offwhite">
+               SHIV
+            </span>
+            <span className="ml-2 text-xs uppercase tracking-[0.3em] text-gold-500">
+              AURA
+            </span>
+          </div>
           <p className="max-w-xs text-sm leading-relaxed text-offwhite/60">
             A premium architecture and interior design studio crafting
             functional, beautiful, and lasting spaces across India.

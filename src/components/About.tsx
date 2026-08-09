@@ -51,7 +51,7 @@ export default function About() {
 
           {/* Experience Card */}
           <div className="absolute -bottom-5 -right-5 rounded-xl bg-deepgreen-800 px-6 py-5 text-white shadow-xl">
-            <h3 className="text-3xl font-bold">10+</h3>
+            <h3 className="text-3xl font-bold">5+</h3>
             <p className="text-sm text-white/80">
               Years of Interior Design Experience
             </p>

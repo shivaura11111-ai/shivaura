@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -19,10 +20,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "GreennBugg House Deziign | Architecture & Interior Design Company",
+  title: "Shiv Aura | Architecture & Interior Design Company",
+
   description:
-    "GreennBugg House Deziign provides professional architecture, interior design, house planning, 2D floor plans, 3D front elevations, villa design, and construction consultancy services.",
+    "Shiv Aura provides professional architecture, interior design, house planning, 2D floor plans, 3D front elevations, villa design, and construction consultancy services.",
+
   keywords: [
+    "Shiv Aura",
     "Architecture Company",
     "Architecture Firm",
     "Interior Design",
@@ -36,20 +40,23 @@ export const metadata: Metadata = {
     "3D Visualization",
     "Architectural Design",
   ],
-  authors: [{ name: "GreennBugg House Deziign" }],
+
+  authors: [{ name: "Shiv Aura" }],
+
   openGraph: {
-    title: "GreennBugg House Deziign | Architecture & Interior Design Company",
+    title: "Shiv Aura | Architecture & Interior Design Company",
     description:
-      "GreennBugg House Deziign provides professional architecture, interior design, house planning, 2D floor plans, 3D front elevations, villa design, and construction consultancy services.",
-    siteName: "GreennBugg House Deziign",
+      "Shiv Aura provides professional architecture, interior design, house planning, 2D floor plans, 3D front elevations, villa design, and construction consultancy services.",
+    siteName: "Shiv Aura",
     locale: "en_IN",
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "GreennBugg House Deziign | Architecture & Interior Design Company",
+    title: "Shiv Aura | Architecture & Interior Design Company",
     description:
-      "GreennBugg House Deziign provides professional architecture, interior design, house planning, 2D floor plans, 3D front elevations, villa design, and construction consultancy services.",
+      "Shiv Aura provides professional architecture, interior design, house planning, 2D floor plans, 3D front elevations, villa design, and construction consultancy services.",
   },
 };
 
@@ -59,23 +66,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-IN" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="font-sans">
-        <script
+    <html
+      lang="en-IN"
+      className={`${playfair.variable} ${inter.variable}`}
+    >
+      <body>
+        {/* SEO Structured Data */}
+        <Script
+          id="organization-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "GreennBugg House Deziign",
-              url: "https://www.greennbugg.example",
-              logo: "https://www.greennbugg.example/images/og/og-image.jpg",
+              name: "Shiv Aura",
+
+              url: "https://www.shiv-aura.com",
+
+              logo: "https://www.shiv-aura.com/images/og/og-image.jpg",
+
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+919000000000",
                 contactType: "customer service",
                 areaServed: "IN",
               },
+
               sameAs: [
                 "https://instagram.com/greennbugg",
                 "https://facebook.com/greennbugg",
@@ -85,15 +101,20 @@ export default function RootLayout({
             }),
           }}
         />
+
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:bg-deepgreen-700 focus:px-4 focus:py-2 focus:text-offwhite"
+          className="sr-only focus:not-sr-only"
         >
           Skip to main content
         </a>
+
         <Header />
-        {children}
+
+        <main id="main-content">{children}</main>
+
         <Footer />
+
         <WhatsAppButton />
       </body>
     </html>
