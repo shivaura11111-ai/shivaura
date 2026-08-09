@@ -15,55 +15,80 @@ export default function ConsultationForm() {
 
     const form = e.currentTarget;
 
-    // Get EmailJS settings from Vercel environment variables
+    // Get EmailJS credentials from Vercel environment variables
     const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
     const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-    // Make sure environment variables exist
+    // Check environment variables
     if (!serviceId || !templateId || !publicKey) {
-      console.error("EmailJS environment variables are missing.");
+      console.error("Missing EmailJS environment variables:", {
+        serviceId: !!serviceId,
+        templateId: !!templateId,
+        publicKey: !!publicKey,
+      });
 
-      alert("Email service is not configured. Please try again later.");
-
+      alert("Email service is not configured.");
       setSubmitting(false);
       return;
     }
 
-    // Get form values
-    const name = (
-      form.elements.namedItem("name") as HTMLInputElement
-    ).value;
+    // Get the values directly from the form
+    const formData = new FormData(form);
 
-    const phone = (
-      form.elements.namedItem("phone") as HTMLInputElement
-    ).value;
+    const name = String(formData.get("name") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    const city = String(formData.get("city") || "").trim();
 
-    const city = (
-      form.elements.namedItem("city") as HTMLSelectElement
-    ).value;
+    // Debug - check exactly what is being sent
+    console.log("FORM DATA:", {
+      name,
+      phone,
+      city,
+    });
+
+    // Make sure name exists
+    if (!name) {
+      alert("Please enter your name.");
+      setSubmitting(false);
+      return;
+    }
+
+    if (!phone) {
+      alert("Please enter your phone number.");
+      setSubmitting(false);
+      return;
+    }
+
+    if (!city) {
+      alert("Please select your city.");
+      setSubmitting(false);
+      return;
+    }
 
     try {
-      // Send email through EmailJS
+      const templateParams = {
+        name: name,
+        phone: phone,
+        city: city,
+      };
+
+      console.log("EMAILJS DATA:", templateParams);
+
       const response = await emailjs.send(
         serviceId,
         templateId,
-        {
-          name: name,
-          phone: phone,
-          city: city,
-        },
+        templateParams,
         publicKey
       );
 
-      console.log("EmailJS success:", response);
+      console.log("EMAILJS SUCCESS:", response);
 
       alert("Form submitted successfully!");
 
-      // Clear form
       form.reset();
     } catch (error) {
-      console.error("EmailJS Error:", error);
+      console.error("EMAILJS ERROR:", error);
 
       alert("Failed to send. Please try again.");
     } finally {
@@ -80,7 +105,7 @@ export default function ConsultationForm() {
         </div>
       </div>
 
-      {/* Form Content */}
+      {/* Form */}
       <div className="px-5 pb-6 pt-5">
         <h2
           id="consultation-heading"
@@ -107,7 +132,6 @@ export default function ConsultationForm() {
               type="text"
               name="name"
               required
-              aria-required="true"
               autoComplete="name"
               placeholder="Full Name"
               className="h-14 w-full rounded-xl border border-[#53647d] bg-[#3a3a3a] px-12 text-base text-white placeholder:text-gray-300 outline-none focus:border-[#d4a940]"
@@ -131,7 +155,6 @@ export default function ConsultationForm() {
               type="tel"
               name="phone"
               required
-              aria-required="true"
               autoComplete="tel"
               inputMode="tel"
               placeholder="Phone Number"
@@ -155,7 +178,6 @@ export default function ConsultationForm() {
               id="city"
               name="city"
               required
-              aria-required="true"
               defaultValue=""
               autoComplete="address-level2"
               className="h-14 w-full appearance-none rounded-xl border border-[#53647d] bg-[#111111] px-12 pr-10 text-base text-white outline-none focus:border-[#d4a940]"
@@ -189,7 +211,7 @@ export default function ConsultationForm() {
           </button>
         </form>
 
-        {/* Security Text */}
+        {/* Security */}
         <p className="mt-5 text-center text-sm text-[#8fa3c2]">
           🔒 Your information is 100% secure.
         </p>
