@@ -125,7 +125,7 @@ export const faqs = [
 
 export const stats = [
   { value: "5", suffix: "+", label: "Years of Experience" },
-  { value: "1000", suffix: "+", label: "Projects Delivered" },
+  { value: "500", suffix: "+", label: "Projects Delivered" },
   { value: "300", suffix: "+", label: "Happy Clients" },
   { value: "10", suffix: "+", label: "Cities Served" },
 ];

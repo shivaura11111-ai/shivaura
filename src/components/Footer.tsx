@@ -115,20 +115,20 @@ export default function Footer() {
 
   <div className="space-y-4">
     <div>
-      <h4 className="font-semibold text-offwhite">Muzaffarpur Office</h4>
+      <h4 className="font-semibold text-offwhite">Noida Office</h4>
       <p className="text-offwhite/70">
-        Umanagar, Near SKMCH HP Petrol Pump,
+      H-207,H-Block, Sector-63,
         <br />
-        Muzaffarpur, Bihar - 842004
+        Noida, Uttar Pradesh - 201301
       </p>
     </div>
 
     <div>
-      <h4 className="font-semibold text-offwhite">Noida Office</h4>
+      <h4 className="font-semibold text-offwhite">Muzaffarpur Office</h4>
       <p className="text-offwhite/70">
-        H-Block, Sector-63,
+        Umangnagar,Near SKMCH HP Petrol Pump,
         <br />
-        Noida, Uttar Pradesh - 201301
+        Muzaffarpur, Bihar - 842004
       </p>
     </div>
   </div>
