@@ -17,12 +17,13 @@ export default function HomePage() {
       <About />
       <Leadership />
       <Services />
+      <PricingPackages />
+
       <Projects />      
       <Process />
       <WhyUs />
       <FAQ />
       <CTA />
-      <PricingPackages />
     </main>
   );
 }
