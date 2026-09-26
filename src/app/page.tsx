@@ -9,6 +9,7 @@ import WhyUs from "@/components/WhyUs";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 
+
 export default function HomePage() {
   return (
     <main id="main-content">
@@ -21,6 +22,7 @@ export default function HomePage() {
       <WhyUs />
       <FAQ />
       <CTA />
+      <PricingPackages />
     </main>
   );
 }
