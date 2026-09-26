@@ -1,3 +1,4 @@
+import PricingPackages from "@/components/PricingPackages";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Leadership from "@/components/Leadership";
