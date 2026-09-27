@@ -13,7 +13,7 @@ const servicesData: Record<string, any> = {
         location: "Ranchi, Jharkhand",
         plot: "40 x 60 ft",
         floors: "G + 1",
-        image: "img-1.png" // Yahan apne PC/public folder wali image ka path daal
+        image: "/images/img-1.png"
       },
       {
         id: 2,
@@ -22,7 +22,7 @@ const servicesData: Record<string, any> = {
         location: "Noida, Uttar Pradesh",
         plot: "30 x 50 ft",
         floors: "G + 1",
-        image: "/your-image-2.jpg"
+        image: "/images/img-2.png"
       },
       {
         id: 3,
@@ -31,7 +31,7 @@ const servicesData: Record<string, any> = {
         location: "Delhi, India",
         plot: "45 x 70 ft",
         floors: "G + 1",
-        image: "/your-image-3.jpg"
+        image: "/images/img-3.png"
       },
       {
         id: 4,
@@ -40,7 +40,7 @@ const servicesData: Record<string, any> = {
         location: "Gurgaon, Haryana",
         plot: "50 x 80 ft",
         floors: "G + 2",
-        image: "/your-image-4.jpg"
+        image: "/images/img-4.png"
       },
       {
         id: 5,
@@ -49,7 +49,7 @@ const servicesData: Record<string, any> = {
         location: "Jaipur, Rajasthan",
         plot: "60 x 90 ft",
         floors: "G + 2",
-        image: "/your-image-5.jpg"
+        image: "/images/img-5.png"
       },
       {
         id: 6,
@@ -58,7 +58,7 @@ const servicesData: Record<string, any> = {
         location: "Bangalore, Karnataka",
         plot: "30 x 40 ft",
         floors: "G + 3",
-        image: "/your-image-6.jpg"
+        image: "/images/img-6.png"
       },
       {
         id: 7,
@@ -67,7 +67,7 @@ const servicesData: Record<string, any> = {
         location: "Mumbai, Maharashtra",
         plot: "40 x 50 ft",
         floors: "G + 1",
-        image: "/your-image-7.jpg"
+        image: "/images/img-7.png"
       },
       {
         id: 8,
@@ -76,7 +76,7 @@ const servicesData: Record<string, any> = {
         location: "Patna, Bihar",
         plot: "25 x 45 ft",
         floors: "G + 2",
-        image: "/your-image-8.jpg"
+        image: "/images/img-8.png"
       }
     ]
   },
@@ -90,7 +90,7 @@ const servicesData: Record<string, any> = {
         location: "Patna, Bihar",
         plot: "60 x 80 ft",
         floors: "G + 3",
-        image: "/your-image-1.jpg"
+        image: "/images/img-1.png"
       }
     ]
   },
@@ -104,7 +104,7 @@ const servicesData: Record<string, any> = {
         location: "Noida, Uttar Pradesh",
         plot: "100 x 120 ft",
         floors: "G + 12",
-        image: "/your-image-1.jpg"
+        image: "/images/img-1.png"
       }
     ]
   },
@@ -118,7 +118,7 @@ const servicesData: Record<string, any> = {
         location: "Delhi, India",
         plot: "50 x 50 ft",
         floors: "G + 2",
-        image: "/your-image-1.jpg"
+        image: "/images/img-1.png"
       }
     ]
   }
